@@ -3,6 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --ellipse-width-base: 471.27;
+  --ellipse-height-base: 441.76;
+  --ellipse-top-base: -228.76;
+  --ellipse-left-base: -92.47;
+  --ellipse-blur-base: 121;
+
+  /* Fluid scaling using clamp() */
+  /* Formula: clamp(min, preferred (fluid), max) */
+  /* Fluid value: (base-value / 1920) * 100vw */
+
+  --ellipse-width: clamp(189px, 24.54vw, 471.27px); /* 471.27/1920 = 24.54% */
+  --ellipse-height: clamp(177px, 23vw, 441.76px); /* 441.76/1920 = 23% */
+  --ellipse-top: clamp(-162px, -11.9vw, -91px); /* -228.76/1920 = -11.9% */
+  --ellipse-left: clamp(-65px, -4.8vw, -37px); /* -92.47/1920 = -4.8% */
+  --ellipse-blur: clamp(48px, 6.3vw, 121px); /* 121/1920 = 6.3% */
 }
 
 @theme inline {
@@ -16,4 +32,17 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.ellipse {
+  position: absolute;
+  width: var(--ellipse-width);
+  height: var(--ellipse-height);
+  top: var(--ellipse-top);
+  left: var(--ellipse-left);
+  border-radius: 50%;
+  background: #ffffff;
+  filter: blur(var(--ellipse-blur));
+  pointer-events: none;
+  z-index: 0;
 }
