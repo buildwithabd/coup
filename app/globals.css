@@ -96,6 +96,22 @@
   display: block;
 }
 
+.navbar-links a {
+  color: #8c97a8;
+  text-decoration: none;
+  font-size: var(--navbar-link-font-size);
+  font-weight: 500;
+  padding: var(--navbar-link-padding-vertical)
+    var(--navbar-link-padding-horizontal);
+  border-radius: 8px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-links a:hover {
+  color: #000000;
+}
+
 .cta-button {
   width: var(--cta-width);
   height: var(--cta-height);
