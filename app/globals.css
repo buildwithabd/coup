@@ -96,6 +96,14 @@
   display: block;
 }
 
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--navbar-link-gap);
+  flex-grow: 1;
+  justify-content: center;
+}
+
 .navbar-links a {
   color: #8c97a8;
   text-decoration: none;
@@ -113,14 +121,14 @@
 }
 
 .cta-button {
+  position: relative;
   width: var(--cta-width);
   height: var(--cta-height);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--cta-gap);
   padding: var(--cta-padding-vertical) var(--cta-padding-horizontal);
-  border: none;
   border-radius: var(--cta-border-radius);
   background: #007aff;
   color: #ffffff;
@@ -128,17 +136,27 @@
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .cta-button::before {
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: #ffffff;
+  color: #007aff;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
+}
+
+.cta-button:hover::before {
+  width: 100%;
+}
+
+.cta-button:hover {
+  color: #007aff;
+  box-shadow: 4px 4px 12px rgb(229, 229, 229);
 }
