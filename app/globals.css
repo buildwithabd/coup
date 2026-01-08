@@ -161,3 +161,19 @@
   color: #007aff;
   box-shadow: 4px 4px 12px rgb(229, 229, 229);
 }
+
+/* Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
